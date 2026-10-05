@@ -1,1 +1,10 @@
-[]
+[
+  { "name": "Software Engineer", "slug": "software-engineer" },
+  { "name": "Product Designer", "slug": "product-designer" },
+  { "name": "Founder", "slug": "founder" },
+  { "name": "Researcher", "slug": "researcher" },
+  { "name": "Writer", "slug": "writer" },
+  { "name": "Educator", "slug": "educator" },
+  { "name": "Community Builder", "slug": "community-builder" },
+  { "name": "Investor", "slug": "investor" }
+]

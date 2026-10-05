@@ -1,1 +1,12 @@
-[]
+[
+  { "name": "Artificial Intelligence", "slug": "artificial-intelligence" },
+  { "name": "Open Source", "slug": "open-source" },
+  { "name": "Sustainability", "slug": "sustainability" },
+  { "name": "Future of Work", "slug": "future-of-work" },
+  { "name": "Leadership", "slug": "leadership" },
+  { "name": "Mental Health", "slug": "mental-health" },
+  { "name": "Creative Tools", "slug": "creative-tools" },
+  { "name": "Financial Inclusion", "slug": "financial-inclusion" },
+  { "name": "Education Access", "slug": "education-access" },
+  { "name": "Local Communities", "slug": "local-communities" }
+]

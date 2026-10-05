@@ -1,10 +1,7 @@
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
-import dotenv from 'dotenv'
 import User from '../models/auth.model.js'
 import { sendSuccess } from '../utils/response.js'
-
-dotenv.config()
+import generateToken from '../utils/generateToken.js'
 
 async function register(req, res) {
   const { name, email, password } = req.body
@@ -30,11 +27,7 @@ async function login(req, res) {
 }
 
 function createSession(user) {
-  const token = jwt.sign(
-    { sub: user._id.toString(), role: user.role },
-    process.env.JWT_SECRET || 'development-only-secret',
-    { expiresIn: process.env.JWT_EXPIRES_IN || '7d' },
-  )
+  const token = generateToken(user)
   return { token, user: { id: user._id, name: user.name, email: user.email, role: user.role } }
 }
 

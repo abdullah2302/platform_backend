@@ -1,6 +1,14 @@
 import Person from '../models/people.model.js'
-import slugify from '../utils/slug.js'
 import { sendSuccess } from '../utils/response.js'
+
+function createSlug(value) {
+  return String(value)
+    .normalize('NFKD')
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .toLowerCase()
+    .replace(/[-\s]+/g, '-')
+}
 
 async function list(req, res) {
   const { search, country, industry, profession, topic, page = 1, limit = 20 } = req.query
@@ -24,7 +32,7 @@ async function get(req, res) {
 }
 
 async function create(req, res) {
-  return sendSuccess(res, await Person.create({ ...req.body, slug: req.body.slug || slugify(req.body.name) }), 201)
+  return sendSuccess(res, await Person.create({ ...req.body, slug: req.body.slug || createSlug(req.body.name) }), 201)
 }
 
 async function update(req, res) {

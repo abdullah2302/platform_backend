@@ -9,15 +9,27 @@ import searchRoutes from './routes/search.routes.js'
 import taxonomyRoutes from './routes/taxonomy.routes.js'
 import { connectDB } from './config/db.js'
 import { createServer } from 'node:http'
+import cors from 'cors'
+import morgan from 'morgan';
 
 dotenv.config()
+
 
 const app = express()
 const httpServer = createServer(app)
 
 const PORT = Number(process.env.PORT) || 5000
-
+const allowedOrigins = [
+  process.env.CLIENT_ORIGIN,
+];
+app.use(
+    cors({
+        origin: allowedOrigins,
+        credentials: true,
+    })
+);
 app.use(express.json())
+app.use(morgan('dev'))
 app.use(rateLimiter())
 
 app.get('/health', (req, res) => {

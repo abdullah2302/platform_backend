@@ -4,7 +4,5 @@ export default (schema) => (req, res, next) => {
     return res.status(400).json({ success: false, message: 'Validation failed', details: result.error.issues })
   }
   req.body = result.data.body
-  req.query = result.data.query
-  req.params = result.data.params
   return next()
 }

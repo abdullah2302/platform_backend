@@ -1,1 +1,10 @@
-[]
+[
+  { "name": "Technology", "slug": "technology" },
+  { "name": "Design", "slug": "design" },
+  { "name": "Education", "slug": "education" },
+  { "name": "Healthcare", "slug": "healthcare" },
+  { "name": "Climate", "slug": "climate" },
+  { "name": "Finance", "slug": "finance" },
+  { "name": "Media", "slug": "media" },
+  { "name": "Social Impact", "slug": "social-impact" }
+]

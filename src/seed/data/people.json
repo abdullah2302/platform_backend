@@ -1,1 +1,134 @@
-[]
+[
+  {
+    "name": "Maya Chen",
+    "slug": "maya-chen",
+    "bio": "Product designer building calm, accessible tools for teams doing important work.",
+    "country": "Singapore",
+    "industry": "Design",
+    "profession": "Product Designer",
+    "topics": ["Creative Tools", "Future of Work"],
+    "socialAccounts": { "website": "https://maya.example.com", "linkedin": "https://linkedin.com/in/mayachen" },
+    "claimed": true
+  },
+  {
+    "name": "Jon Bell",
+    "slug": "jon-bell",
+    "bio": "Open-source engineer and maintainer interested in making developer tools more human.",
+    "country": "United Kingdom",
+    "industry": "Technology",
+    "profession": "Software Engineer",
+    "topics": ["Open Source", "Artificial Intelligence"],
+    "socialAccounts": { "github": "https://github.com/jonbell" },
+    "claimed": true
+  },
+  {
+    "name": "Amina Yusuf",
+    "slug": "amina-yusuf",
+    "bio": "Researcher working at the intersection of education access, language, and technology.",
+    "country": "Nigeria",
+    "industry": "Education",
+    "profession": "Researcher",
+    "topics": ["Education Access", "Local Communities"],
+    "socialAccounts": { "website": "https://amina.example.com" },
+    "claimed": true
+  },
+  {
+    "name": "Rafael Costa",
+    "slug": "rafael-costa",
+    "bio": "Climate founder helping cities measure and reduce the impact of everyday movement.",
+    "country": "Brazil",
+    "industry": "Climate",
+    "profession": "Founder",
+    "topics": ["Sustainability", "Leadership"],
+    "socialAccounts": { "linkedin": "https://linkedin.com/in/rafaelcosta" },
+    "claimed": false
+  },
+  {
+    "name": "Priya Nair",
+    "slug": "priya-nair",
+    "bio": "Writer and community builder documenting the people reshaping the future of work.",
+    "country": "India",
+    "industry": "Media",
+    "profession": "Writer",
+    "topics": ["Future of Work", "Local Communities"],
+    "socialAccounts": { "website": "https://priya.example.com", "twitter": "https://x.com/priyanair" },
+    "claimed": true
+  },
+  {
+    "name": "Noah Williams",
+    "slug": "noah-williams",
+    "bio": "Educator designing practical learning programs for first-generation builders.",
+    "country": "United States",
+    "industry": "Education",
+    "profession": "Educator",
+    "topics": ["Education Access", "Leadership"],
+    "socialAccounts": { "linkedin": "https://linkedin.com/in/noahwilliams" },
+    "claimed": false
+  },
+  {
+    "name": "Elena Petrova",
+    "slug": "elena-petrova",
+    "bio": "Healthcare innovator focused on making preventive care easier to understand and access.",
+    "country": "Germany",
+    "industry": "Healthcare",
+    "profession": "Founder",
+    "topics": ["Mental Health", "Artificial Intelligence"],
+    "socialAccounts": { "website": "https://elena.example.com" },
+    "claimed": true
+  },
+  {
+    "name": "Kwame Mensah",
+    "slug": "kwame-mensah",
+    "bio": "Community organizer creating better pathways into technology for young people in Accra.",
+    "country": "Ghana",
+    "industry": "Social Impact",
+    "profession": "Community Builder",
+    "topics": ["Local Communities", "Open Source"],
+    "socialAccounts": { "website": "https://kwame.example.com" },
+    "claimed": true
+  },
+  {
+    "name": "Sofia Laurent",
+    "slug": "sofia-laurent",
+    "bio": "Investor supporting early teams building a more inclusive and sustainable economy.",
+    "country": "France",
+    "industry": "Finance",
+    "profession": "Investor",
+    "topics": ["Financial Inclusion", "Sustainability"],
+    "socialAccounts": { "linkedin": "https://linkedin.com/in/sofialaurent" },
+    "claimed": false
+  },
+  {
+    "name": "Daniel Okafor",
+    "slug": "daniel-okafor",
+    "bio": "Software engineer building reliable data systems for mission-driven organizations.",
+    "country": "Kenya",
+    "industry": "Technology",
+    "profession": "Software Engineer",
+    "topics": ["Artificial Intelligence", "Open Source"],
+    "socialAccounts": { "github": "https://github.com/danielokafor" },
+    "claimed": true
+  },
+  {
+    "name": "Lina Haddad",
+    "slug": "lina-haddad",
+    "bio": "Mental health advocate and educator making honest conversations easier to start.",
+    "country": "Jordan",
+    "industry": "Healthcare",
+    "profession": "Educator",
+    "topics": ["Mental Health", "Education Access"],
+    "socialAccounts": { "website": "https://lina.example.com" },
+    "claimed": true
+  },
+  {
+    "name": "Theo Martin",
+    "slug": "theo-martin",
+    "bio": "Creative technologist exploring new tools for artists, storytellers, and small studios.",
+    "country": "Canada",
+    "industry": "Technology",
+    "profession": "Product Designer",
+    "topics": ["Creative Tools", "Artificial Intelligence"],
+    "socialAccounts": { "website": "https://theo.example.com", "github": "https://github.com/theomartin" },
+    "claimed": false
+  }
+]
