@@ -11,6 +11,7 @@ const peopleSchema = new mongoose.Schema(
     topics: { type: [String], default: [] },
     socialAccounts: { type: Map, of: String, default: {} },
     claimed: { type: Boolean, default: false },
+    claimedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null },
   },
   { timestamps: true }
 )

@@ -5,6 +5,7 @@ import Person from '../models/people.model.js'
 import Industry from '../models/industry.model.js'
 import Profession from '../models/profession.model.js'
 import Topic from '../models/topic.model.js'
+import SourceRecord from '../models/source-record.model.js'
 import people from './data/people.json' with { type: 'json' }
 import industries from './data/industries.json' with { type: 'json' }
 import professions from './data/professions.json' with { type: 'json' }
@@ -13,15 +14,22 @@ import topics from './data/topics.json' with { type: 'json' }
 async function seed() {
   await connectDB()
   const data = [
-    [Person, people],
     [Industry, industries],
     [Profession, professions],
     [Topic, topics],
   ]
-  for (const [Model, records] of data) {
+  for (const [Model, records] of [[Person, people], ...data]) {
     if (records.length > 0) {
       await Model.deleteMany({})
-      await Model.insertMany(records)
+      const inserted = await Model.insertMany(records)
+      if (Model === Person) {
+        await SourceRecord.deleteMany({})
+        await SourceRecord.insertMany(inserted.map((person) => ({
+          person: person._id,
+          source: 'Platform seed dataset',
+          sourceUrl: 'https://example.com/platform-seed',
+        })))
+      }
     }
   }
   await disconnectDB()
