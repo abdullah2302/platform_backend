@@ -1,6 +1,6 @@
-const express = require('express')
-const controller = require('../controllers/search.controller')
+import express from 'express'
+import * as controller from '../controllers/search.controller.js'
 
 const router = express.Router()
 router.get('/', controller.search)
-module.exports = router
+export default router

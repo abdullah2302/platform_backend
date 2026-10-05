@@ -1,6 +1,6 @@
-const { error: logError } = require('../utils/logger')
+import { error as logError } from '../utils/logger.js'
 
-module.exports = (err, req, res, next) => {
+export default (err, req, res, next) => {
   if (res.headersSent) return next(err)
   logError(err.message, { path: req.path, method: req.method })
   return res.status(err.statusCode || (err.name === 'ValidationError' ? 400 : 500)).json({

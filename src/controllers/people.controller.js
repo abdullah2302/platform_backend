@@ -1,6 +1,6 @@
-const Person = require('../models/people.model')
-const slugify = require('../utils/slug')
-const { sendSuccess } = require('../utils/response')
+import Person from '../models/people.model.js'
+import slugify from '../utils/slug.js'
+import { sendSuccess } from '../utils/response.js'
 
 async function list(req, res) {
   const { search, country, industry, profession, topic, page = 1, limit = 20 } = req.query
@@ -31,4 +31,4 @@ async function update(req, res) {
   return sendSuccess(res, await Person.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true }))
 }
 
-module.exports = { list, get, create, update }
+export { list, get, create, update }

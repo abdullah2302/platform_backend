@@ -1,18 +1,43 @@
-const app = require('./app')
-const { connectDatabase } = require('./config/db')
-const env = require('./config/env')
-const { error: logError } = require('./utils/logger')
 
-async function start() {
-  await connectDatabase()
-  app.listen(env.port, () => console.info(`Backend listening on port ${env.port}`))
-}
+import express from 'express'
+import dotenv from 'dotenv'
+import rateLimiter from './middleware/rateLimiter.js'
+import errorHandler from './middleware/errorHandler.js'
+import authRoutes from './routes/auth.routes.js'
+import peopleRoutes from './routes/people.routes.js'
+import searchRoutes from './routes/search.routes.js'
+import taxonomyRoutes from './routes/taxonomy.routes.js'
+import { connectDB } from './config/db.js'
+import { createServer } from 'node:http'
 
-if (require.main === module) {
-  start().catch((error) => {
-    logError('Unable to start backend', error)
-    process.exitCode = 1
+dotenv.config()
+
+const app = express()
+const httpServer = createServer(app)
+
+const PORT = Number(process.env.PORT) || 5000
+
+app.use(express.json())
+app.use(rateLimiter())
+
+app.get('/health', (req, res) => {
+  res.json({
+    success: true,
+    data: {
+      status: 'ok'
+    }
   })
-}
+})
 
-module.exports = { start }
+app.use('/api/auth', authRoutes)
+app.use('/api/people', peopleRoutes)
+app.use('/api/search', searchRoutes)
+app.use('/api/taxonomy', taxonomyRoutes)
+
+app.use(errorHandler)
+
+await connectDB()
+
+httpServer.listen(PORT, () => {
+  console.log(`API running on http://localhost:${PORT}`)
+})

@@ -6,4 +6,4 @@ function error(message, metadata) {
   console.error(message, metadata || '')
 }
 
-module.exports = { info, error }
+export { info, error }

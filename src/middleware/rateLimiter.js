@@ -1,6 +1,6 @@
 const hits = new Map()
 
-module.exports = (windowMs = 60_000, max = 100) => (req, res, next) => {
+export default (windowMs = 60_000, max = 100) => (req, res, next) => {
   const key = req.ip
   const now = Date.now()
   const current = hits.get(key)

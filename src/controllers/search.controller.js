@@ -1,5 +1,5 @@
-const Person = require('../models/people.model')
-const { sendSuccess } = require('../utils/response')
+import Person from '../models/people.model.js'
+import { sendSuccess } from '../utils/response.js'
 
 async function search(req, res) {
   const query = req.query.q
@@ -11,4 +11,4 @@ async function search(req, res) {
   return sendSuccess(res, results)
 }
 
-module.exports = { search }
+export { search }

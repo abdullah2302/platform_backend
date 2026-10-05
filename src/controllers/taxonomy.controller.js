@@ -1,7 +1,7 @@
-const Industry = require('../models/industry.model')
-const Profession = require('../models/profession.model')
-const Topic = require('../models/topic.model')
-const { sendSuccess } = require('../utils/response')
+import Industry from '../models/industry.model.js'
+import Profession from '../models/profession.model.js'
+import Topic from '../models/topic.model.js'
+import { sendSuccess } from '../utils/response.js'
 
 const models = { industries: Industry, professions: Profession, topics: Topic }
 
@@ -15,4 +15,4 @@ async function list(req, res) {
   return sendSuccess(res, await Model.find().sort({ name: 1 }))
 }
 
-module.exports = { list }
+export { list }

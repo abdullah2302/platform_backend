@@ -1,6 +1,6 @@
-const express = require('express')
-const controller = require('../controllers/taxonomy.controller')
+import express from 'express'
+import * as controller from '../controllers/taxonomy.controller.js'
 
 const router = express.Router()
 router.get('/:type', controller.list)
-module.exports = router
+export default router

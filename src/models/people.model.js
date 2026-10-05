@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const peopleSchema = new mongoose.Schema(
   {
@@ -17,4 +17,4 @@ const peopleSchema = new mongoose.Schema(
 
 peopleSchema.index({ name: 'text', bio: 'text', industry: 'text', profession: 'text', topics: 'text' })
 
-module.exports = mongoose.model('Person', peopleSchema)
+export default mongoose.model('Person', peopleSchema)

@@ -1,16 +1,22 @@
-const { connectDatabase, disconnectDatabase } = require('../config/db')
-const Person = require('../models/people.model')
-const Industry = require('../models/industry.model')
-const Profession = require('../models/profession.model')
-const Topic = require('../models/topic.model')
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
+import { connectDB, disconnectDB } from '../config/db.js'
+import Person from '../models/people.model.js'
+import Industry from '../models/industry.model.js'
+import Profession from '../models/profession.model.js'
+import Topic from '../models/topic.model.js'
+import people from './data/people.json' with { type: 'json' }
+import industries from './data/industries.json' with { type: 'json' }
+import professions from './data/professions.json' with { type: 'json' }
+import topics from './data/topics.json' with { type: 'json' }
 
 async function seed() {
-  await connectDatabase()
+  await connectDB()
   const data = [
-    [Person, require('./data/people.json')],
-    [Industry, require('./data/industries.json')],
-    [Profession, require('./data/professions.json')],
-    [Topic, require('./data/topics.json')],
+    [Person, people],
+    [Industry, industries],
+    [Profession, professions],
+    [Topic, topics],
   ]
   for (const [Model, records] of data) {
     if (records.length > 0) {
@@ -18,15 +24,15 @@ async function seed() {
       await Model.insertMany(records)
     }
   }
-  await disconnectDatabase()
+  await disconnectDB()
 }
 
-if (require.main === module) {
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   seed().catch(async (error) => {
     console.error('Seeding failed', error)
-    await disconnectDatabase()
+    await disconnectDB()
     process.exitCode = 1
   })
 }
 
-module.exports = seed
+export default seed

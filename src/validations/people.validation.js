@@ -1,4 +1,4 @@
-const { z } = require('zod')
+import { z } from 'zod'
 
 const fields = {
   name: z.string().min(1).optional(),
@@ -9,7 +9,7 @@ const fields = {
   topics: z.array(z.string()).optional(),
 }
 
-module.exports = {
+export default {
   create: z.object({ body: z.object({ ...fields, name: z.string().min(1) }), query: z.record(z.string()).optional(), params: z.record(z.string()).optional() }),
   update: z.object({ body: z.object(fields).refine((value) => Object.keys(value).length > 0), query: z.record(z.string()).optional(), params: z.record(z.string()).optional() }),
 }

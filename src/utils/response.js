@@ -8,4 +8,4 @@ function sendError(res, message, statusCode = 500, details) {
   return res.status(statusCode).json(body)
 }
 
-module.exports = { sendSuccess, sendError }
+export { sendSuccess, sendError }

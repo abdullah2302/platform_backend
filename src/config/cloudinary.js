@@ -1,3 +1,9 @@
-const env = require('./env')
+import dotenv from 'dotenv'
 
-module.exports = env.cloudinary
+dotenv.config()
+
+export default {
+  cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+  apiKey: process.env.CLOUDINARY_API_KEY,
+  apiSecret: process.env.CLOUDINARY_API_SECRET,
+}

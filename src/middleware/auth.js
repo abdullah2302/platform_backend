@@ -1,11 +1,13 @@
-const jwt = require('jsonwebtoken')
-const env = require('../config/env')
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
 
-module.exports = (req, res, next) => {
+dotenv.config()
+
+export default (req, res, next) => {
   const header = req.headers.authorization
   if (!header || !header.startsWith('Bearer ')) return res.status(401).json({ success: false, message: 'Authentication required' })
   try {
-    req.user = jwt.verify(header.slice(7), env.jwtSecret)
+    req.user = jwt.verify(header.slice(7), process.env.JWT_SECRET || 'development-only-secret')
     return next()
   } catch (error) {
     error.statusCode = 401

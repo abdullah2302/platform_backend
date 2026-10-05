@@ -1,3 +1,3 @@
-const seed = require('./seed')
+import seed from './seed.js'
 
-module.exports = seed
+export default seed

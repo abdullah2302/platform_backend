@@ -1,13 +1,21 @@
-const mongoose = require('mongoose')
-const env = require('./env')
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-async function connectDatabase() {
-  await mongoose.connect(env.mongoUri)
-  return mongoose.connection
+dotenv.config();
+
+export async function connectDB() {
+    try {
+        await mongoose.connect(
+            process.env.MONGODB_URI || process.env.MONGO_URI || "mongodb://127.0.0.1:27017/platform",
+            { serverSelectionTimeoutMS: 5000 },
+        );
+        console.log("MongoDB connected");
+    } catch {
+        console.warn("MongoDB unavailable; API is running without database access.");
+        return false;
+    }
 }
 
-async function disconnectDatabase() {
-  await mongoose.disconnect()
+export async function disconnectDB() {
+    await mongoose.disconnect();
 }
-
-module.exports = { connectDatabase, disconnectDatabase }

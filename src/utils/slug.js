@@ -7,4 +7,4 @@ function slugify(value) {
     .replace(/[-\s]+/g, '-')
 }
 
-module.exports = slugify
+export default slugify
